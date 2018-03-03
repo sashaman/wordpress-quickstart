@@ -14,14 +14,14 @@
         {
             "name": "APPLICATION_NAME",
             "description": "The name of the WordPress instance.",
-            "value": "my-wordpress-site",
+            "value": "wp",
             "from": "[a-zA-Z0-9]",
             "required": true
         },
         {
             "name": "QUICKSTART_REPOSITORY_URL",
             "description": "The URL of the quickstart Git repository.",
-            "value": "https://github.com/openshift-evangelists/wordpress-quickstart",
+            "value": "https://github.com/sashaman/wordpress-quickstart",
             "required": true
         },
         {
@@ -57,7 +57,7 @@
         {
             "name": "MYSQL_VERSION",
             "description": "The version of the MySQL database.",
-            "value": "5.7",
+            "value": "10.1",
             "required": true
         },
         {
@@ -177,12 +177,12 @@
                         "imageChangeParams": {
                             "automatic": true,
                             "containerNames": [
-                                "mysql"
+                                "mariadb"
                             ],
                             "from": {
                                 "kind": "ImageStreamTag",
                                 "namespace": "openshift",
-                                "name": "mysql:${MYSQL_VERSION}"
+                                "name": "mariadb:${MYSQL_VERSION}"
                             }
                         }
                     }
@@ -288,8 +288,8 @@
                                 ]
                             },
                             {
-                                "name": "mysql",
-                                "image": "centos/mysql-57-centos7",
+                                "name": "mariadb",
+                                "image": "centos/mariadb-102-centos7",
                                 "ports": [
                                     {
                                         "containerPort": 3306,
