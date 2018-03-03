@@ -57,7 +57,7 @@
         {
             "name": "MYSQL_VERSION",
             "description": "The version of the MySQL database.",
-            "value": "10.1",
+            "value": "10.2",
             "required": true
         },
         {
